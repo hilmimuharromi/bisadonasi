@@ -31,6 +31,7 @@ func main() {
 
 	api.POST("/user/register", userHandler.RegisterUser)
 	api.POST("/user/login", userHandler.LoginUser)
+	api.POST("/user/avatar", userHandler.UploadAvatar)
 
 	// r.GET("/users", handler)
 	r.Run()

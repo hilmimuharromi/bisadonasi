@@ -8,15 +8,16 @@ import (
 	"github.com/go-playground/validator/v10"
 )
 
-type response struct {
-	Meta meta        `json:"meta"`
-	Data interface{} `json:"data"`
-}
+// type response struct {
+// 	Meta meta        `json:"meta"`
+// 	Data interface{} `json:"data"`
+// }
 
-type meta struct {
-	Message string `json:"message"`
-	Code    int    `json:"code"`
-	Status  string `json:"status"`
+type response struct {
+	Message string      `json:"message"`
+	Code    int         `json:"code"`
+	Status  string      `json:"status"`
+	Data    interface{} `json:"data"`
 }
 
 type user struct {
@@ -25,15 +26,11 @@ type user struct {
 }
 
 func ApiResponse(message string, code int, status string, data interface{}) response {
-	meta := meta{
+	jsonResponse := response{
 		Message: message,
 		Code:    code,
 		Status:  status,
-	}
-
-	jsonResponse := response{
-		Meta: meta,
-		Data: data,
+		Data:    data,
 	}
 
 	return jsonResponse
